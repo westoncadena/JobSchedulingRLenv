@@ -64,7 +64,7 @@ class Scheduler(gym.Env):
         self.state = 'INVALID' #Call make() to make an environment
         self.action_sequence = [] #No actions taken yet
         self.invalid_action_reward = -100
-        self.valid_action_reward = 0 #Try changing this
+        self.valid_action_reward = 20 #Try changing this
         self.n = n
         self.mt = mt
         self.mr = mr
