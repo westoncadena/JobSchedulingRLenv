@@ -43,9 +43,9 @@ class QLearningAgent:
 
 def train():
     # Environment parameters
-    n_jobs = 3
-    max_time = 3
-    max_resources = 3
+    n_jobs = 100
+    max_time = 40
+    max_resources = 30
     
     # Training parameters
     n_episodes = 1000
@@ -68,6 +68,9 @@ def train():
             
             # Take action in environment
             next_state, reward, done, info = env.step(action + 1)  # +1 because actions are 1-based
+
+            if done :
+                print("Done!")
             
             # Let agent learn from experience
             agent.learn(state, action, reward, next_state, done)
@@ -76,7 +79,7 @@ def train():
             state = next_state
             
             if episode % 100 == 0:  # Render every 100th episode
-                env.render()
+                # env.render()
                 print(f"Action: {action + 1}, Reward: {reward}")
         
         episode_rewards.append(total_reward)
